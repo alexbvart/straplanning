@@ -20,3 +20,35 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+Use App\Project;
+Route::get('projects', function () {
+    $projects = Project::get();
+
+    foreach ($projects as $project ) {
+        echo"
+            $project->id
+            $project->name by
+            <strong>{$project->user->name} </strong><br>
+            ";
+    }
+});
+
+
+
+Use App\User;
+Route::get('users', function () {
+    $users = User::get();
+
+    foreach ($users as $user ) {
+        echo"
+            $user->id
+            <strong>$user->name </strong> tiene
+            {$user->project->count()} projects
+            <br>
+            ";
+    }
+});

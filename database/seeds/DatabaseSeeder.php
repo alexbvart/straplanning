@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
 
         factory(App\User::class,4)->create();
         factory(App\Project::class,10)->create();
+        factory(App\Geninformation::class,10)->create();
 
     }
 }

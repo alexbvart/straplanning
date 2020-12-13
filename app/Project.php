@@ -8,11 +8,11 @@ class Project extends Model
 {
 
      /**
-     * Relacion uno a uno.
+     * Relacion uno a uno. no funbciona
      *
      * projects -> general information
      */
-    public function general()
+    public function info()
     {
         return $this->hasOne('App\Geninformation');
     }
