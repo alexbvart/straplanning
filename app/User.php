@@ -36,4 +36,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+
+
+
+
+
+     /**
+     * Relacion uno a muchos.
+     *
+     * users->projects
+     */
+    public function project()
+    {
+        return $this->hasMany('App\Project');
+    }
 }
