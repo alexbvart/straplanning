@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -31,5 +32,27 @@ class Project extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
+
+    use Sluggable;
+
+    /**
+     * Return the sluggable configuration array for this model.
+     * Devuelve la configuración de la configuración de este modelo
+     * Una URL más legible, más fácil de escribir, etc.)
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+                'onUpdate'=> true,
+            ]
+        ];
+    }
+
+
 
 }

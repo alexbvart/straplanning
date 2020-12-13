@@ -9,6 +9,8 @@ $factory->define(Project::class, function (Faker $faker) {
     return [
         'name'=>$faker->name,
         'description'=>$faker->sentence,
-        'user_id'=>rand(1,4),
+        'user_id'=>rand(1,5),
     ];
 });
+/* 
+'slug'=>$faker-> $table->string('slug')->unique(); */
