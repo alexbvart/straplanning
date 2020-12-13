@@ -52,3 +52,19 @@ Route::get('users', function () {
             ";
     }
 });
+
+
+
+Use App\Geninformation;
+Route::get('info', function () {
+    $infos = Geninformation::get();
+
+    foreach ($infos as $info ) {
+        echo"
+            $info->id
+            <strong>{$info->project->name} </strong> ----
+            $info->mission
+            <br>
+            ";
+    }
+});
