@@ -24,18 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Use App\Project;
-Route::get('projects', function () {
-    $projects = Project::get();
-
-    foreach ($projects as $project ) {
-        echo"
-            $project->id
-            $project->name by
-            <strong>{$project->user->name} </strong><br>
-            ";
-    }
-});
 
 
 
@@ -69,5 +57,20 @@ Route::get('info', function () {
     }
 });
 
+Use App\Project;
+Route::get('projects', function () {
+    $projects = Project::get();
+
+    foreach ($projects as $project ) {
+        echo"
+            $project->id
+            $project->name by
+            <strong>{$project->user->name} </strong><br>
+                {$project->description} <br><br>
+            ";
+    }
+});
+
 Route::get('/', 'PageController@projects');
 Route::get('/{project:slug}', 'PageController@project')->name('project');
+

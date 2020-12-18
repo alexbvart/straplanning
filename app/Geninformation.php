@@ -17,5 +17,11 @@ class Geninformation extends Model
         return $this->belongsTo('App\Project');
     }
 
+
+    //Relacion de uno  a muchos
+    public function objetivos()
+    {
+        return $this->hasMany('App\Objetivo');
+    }
 }
      
