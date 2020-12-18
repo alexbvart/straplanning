@@ -19,12 +19,14 @@ Factor diferenciador <br>
 {{$project->info->differentiatingFactor}}
 <br> <br>
 Objetivos <br>
+<?php 
+$objs = $project->info->objetivos
 
-
-
+?>
 <br> <br>
-{{-- @foreach ( {{$project->info->objetivos}} as $project)
+ @foreach ( $objs as $obj)
+- {{$obj->description}} <br>
 
 @endforeach 
- --}}
+
 @endsection
