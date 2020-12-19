@@ -27,9 +27,9 @@
           <input class="focus:border-purple-500 focus:ring-1 focus:ring-purple-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" aria-label="Filter projects" placeholder="Filter projects" />
         </form>
 
-
+{{--  {{ Auth::user()->name }} --}}
         <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
-
+         
            @foreach ($projects as $project)
             <li x-for="item in items">
               
@@ -43,6 +43,8 @@
                       <dt class="sr-only">Title</dt>
                       <dd class="group-hover:text-white leading-6 font-medium text-black">
                           {{$project->name}}
+                          {{-- {{$project->user->name}} --}}
+                       
                       </dd>
                       </div>
 

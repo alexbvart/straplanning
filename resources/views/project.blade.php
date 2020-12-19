@@ -57,38 +57,50 @@
     4 amenazas --}}
 
     @if ($items->count())
-        <br><br>
-        Fortalezas de {{$project->name}}
-        <br>
-        @foreach ( $items as $item)
+        <div class="rounded bg-grey-light flex-no-shrink w-full  sm:w-1/2 p-4 my-4 bg-blue-100">
+            <div class="flex justify-between py-1">
+                <h3 class="text-sm">
+                    Fortalezas de {{$project->name}}
+                </h3>
+            </div>
+            
+            <ol class="text-sm mt-2">
+            @foreach ( $items as $item)
 
-            @if ($item->tipoitem_id == 1)
-            - {{$item->description}} ||| {{$item->tipoitem_id}} <br>
-{{--             @else
-            estos no son <br> --}}
-            @endif
+                @if ($item->tipoitem_id == 1)
+                <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    {{$item->description}} {{-- || {{$item->tipoitem_id}} <br> --}}
+                </li>
+                @endif
 
-        @endforeach  
+            @endforeach     
+            </ol>
+        </div>
     @else
         no hay fortalezas :D
     @endif
 
 
 
-
     @if ($items->count())
-        <br><br>
-        Oportunidades de {{$project->name}}
-        <br>
+    <div class="rounded bg-grey-light flex-no-shrink w-full  sm:w-1/2 p-4 my-4 bg-red-100">
+        <div class="flex justify-between py-1">
+            <h3 class="text-sm">
+                Oportunidades de {{$project->name}}
+            </h3>
+        </div>
+        <ol class="text-sm mt-2">
         @foreach ( $items as $item)
 
             @if ($item->tipoitem_id == 2)
-            - {{$item->description}} ||| {{$item->tipoitem_id}} <br>
-{{--             @else
-            estos no son <br> --}}
+            <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                {{$item->description}}
+            </li>
             @endif
 
-        @endforeach  
+        @endforeach
+        </ol>
+    </div>  
     @else
         no hay oportunidades :D
     @endif
@@ -96,39 +108,54 @@
 
 
     @if ($items->count())
-        <br><br>
-        Debilidades de {{$project->name}}
-        <br>
+    <div class="rounded bg-grey-light flex-no-shrink w-full  sm:w-1/2 p-4 my-4 bg-indigo-100">
+        <div class="flex justify-between py-1">
+            <h3 class="text-sm">
+                Debilidades de {{$project->name}}
+            </h3>
+        </div>
+        <ol class="text-sm mt-2">
         @foreach ( $items as $item)
 
             @if ($item->tipoitem_id == 3)
-            - {{$item->description}} ||| {{$item->tipoitem_id}} <br>
-{{--             @else
-            estos no son <br> --}}
+            <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                {{$item->description}}
+            </li>
             @endif
 
         @endforeach  
+        </ol>
+    </div>  
     @else
         no hay debilidades, somos muy fuertes :D
     @endif
 
 
     @if ($items->count())
-        <br><br>
-        Amenazas de {{$project->name}}
-        <br>
+    <div class="rounded bg-grey-light flex-no-shrink w-full  sm:w-1/2 p-4 my-4 bg-green-100">
+        <div class="flex justify-between py-1">
+            <h3 class="text-sm">
+                Amenazas de {{$project->name}}
+            </h3>
+        </div>
+        <ol class="text-sm mt-2">
         @foreach ( $items as $item)
 
             @if ($item->tipoitem_id == 4)
-            - {{$item->description}} ||| {{$item->tipoitem_id}} <br>
-{{--             @else
-            estos no son <br> --}}
+            <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                {{$item->description}}
+            </li>
             @endif
 
-        @endforeach  
+        @endforeach 
+        </ol>
+    </div>   
     @else
         nadie nos amenaza, nosotros somos la amennaza :D
     @endif
+
+    <br><br>
+
 
 </section>
 
