@@ -34,6 +34,18 @@ class Project extends Model
     }
 
 
+   /*  un proyecto va tener varios items foda, de hecho en promedio 
+   * 7 fortalezas 
+   * 7 oportunidades
+   * 7 destrezas 
+   * 7 amenazas 
+   */
+   /* Relacion uno a muchos */
+   public function itemfodas()
+   {
+       return $this->hasMany('App\Itemfoda');
+   }
+
 
     use Sluggable;
 
