@@ -16,9 +16,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'alexanderbvart@gmail.com',
             'password' => bcrypt('alexx123'), // password
         ]);
-
-
-        /* Amazon */
+        /*  */
+                  /* Amazon */
 
         App\Project::create([
             'name'=> 'Amazon',
@@ -52,12 +51,21 @@ class DatabaseSeeder extends Seeder
             'differentiatingFactor'=>'Constante innovación aplicada a todos nuestros productos, lo cual nos ha permitido irrumpir en la industria con nuevos servicios y funcionalidades que han revolucionado la manera en que buscamos, compramos, nos movemos, consumimos contenido, nos comunicamos, etc',
             'project_id'=> 2, 
         ]);
+        /*  */
 
+        App\Tipoitem::create([  'name' => 'Fortaleza' ]);
+        App\Tipoitem::create([  'name' => 'Oportunidad' ]);
+        App\Tipoitem::create([  'name' => 'Debilidad' ]);
+        App\Tipoitem::create([  'name' => 'Amenaza' ]);
         /*  */
 
         factory(App\User::class,4)->create();
         factory(App\Project::class,10)->create();
+        factory(App\Objetivo::class,20)->create();
+        factory(App\Itemfoda::class,80)->create();
         factory(App\Geninformation::class,10)->create();
+        
+       /*  $this->call(ProjectsSeeder::class); */
 
     }
 }

@@ -83,7 +83,10 @@
     3 debilidades
     4 amenazas
     shadow rounded my --}}
-    <div class="flex flex-wrap mx-auto bg-red-100 rounded ">
+    <h2 class="title-font sm:text-2xl text-1xl mb-2 mt-8 font-medium text-gray-900">
+        Matriz FODA
+    </h2>
+    <div class="flex flex-wrap mx-auto bg-red-100 rounded mt-8">
 
         @if ($items->count())
             <div class="   bg-grey-light w-full  sm:w-1/2 p-4 bg-blue-100">
@@ -137,7 +140,7 @@
 
 
         @if ($items->count())
-        <div class="bg-grey-light  w-full  sm:w-1/2 p-4 bg-indigo-100">
+        <div class="bg-grey-light  w-full  sm:w-1/2 p-4 bg-indigo-200">
             <div class="flex justify-between py-1">
                 <h3 class="text-sm">
                     Debilidades de {{$project->name}}
