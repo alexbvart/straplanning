@@ -1,3 +1,41 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+
+
+
+.bg{
+    &-verde{
+        background-color: #F0FFD9;
+        &-action{
+            background-color: #DAFF9D;
+        }
+    }
+
+    &-celeste{
+        background-color: #E6F7FF;
+        &-action{
+            background-color: #99DEFF;
+        }
+    }
+
+    &-naranja{
+        background-color: #FFEFE8;
+        &-action{
+            background-color: #FFC6AD;
+        }
+    }
+    &-amarillo{
+        background-color: #FFFBEB;
+        &-action{
+            background-color: #FFF0B2;
+        }
+    }
+    &-rosa{
+        background-color: #FDE6F5;
+        &-action{
+            background-color: #FFD0EF;
+        }
+    }
+}

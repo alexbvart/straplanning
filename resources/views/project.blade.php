@@ -89,7 +89,7 @@
     <div class="flex flex-wrap mx-auto bg-red-100 rounded mt-8">
 
         @if ($items->count())
-            <div class="   bg-grey-light w-full  sm:w-1/2 p-4 bg-blue-100">
+            <div class="   bg-grey-light w-full  sm:w-1/2 p-4 bg-celeste">
                 <div class="flex justify-between py-1">
                     <h3 class="text-sm">
                         Fortalezas de {{$project->name}}
@@ -115,7 +115,7 @@
 
 
         @if ($items->count())
-        <div class=" bg-grey-light  w-full  sm:w-1/2 p-4  bg-red-100">
+        <div class=" bg-grey-light  w-full  sm:w-1/2 p-4  bg-naranja">
             <div class="flex justify-between py-1">
                 <h3 class="text-sm">
                     Oportunidades de {{$project->name}}
@@ -140,7 +140,7 @@
 
 
         @if ($items->count())
-        <div class="bg-grey-light  w-full  sm:w-1/2 p-4 bg-indigo-200">
+        <div class="bg-grey-light  w-full  sm:w-1/2 p-4 bg-amarillo">
             <div class="flex justify-between py-1">
                 <h3 class="text-sm">
                     Debilidades de {{$project->name}}
@@ -164,7 +164,7 @@
 
 
         @if ($items->count())
-        <div class=" bg-grey-light  w-full  sm:w-1/2 p-4  bg-green-100">
+        <div class=" bg-grey-light  w-full  sm:w-1/2 p-4  bg-rosa">
             <div class="flex justify-between py-1">
                 <h3 class="text-sm">
                     Amenazas de {{$project->name}}

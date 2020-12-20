@@ -31168,6 +31168,46 @@ video {
           animation: bounce 1s infinite;
 }
 
+.bg-verde {
+  background-color: #F0FFD9;
+}
+
+.bg-verde-action {
+  background-color: #DAFF9D;
+}
+
+.bg-celeste {
+  background-color: #E6F7FF;
+}
+
+.bg-celeste-action {
+  background-color: #99DEFF;
+}
+
+.bg-naranja {
+  background-color: #FFEFE8;
+}
+
+.bg-naranja-action {
+  background-color: #FFC6AD;
+}
+
+.bg-amarillo {
+  background-color: #FFFBEB;
+}
+
+.bg-amarillo-action {
+  background-color: #FFF0B2;
+}
+
+.bg-rosa {
+  background-color: #FDE6F5;
+}
+
+.bg-rosa-action {
+  background-color: #FFD0EF;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
