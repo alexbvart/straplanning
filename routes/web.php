@@ -73,7 +73,7 @@ Route::get('projects', function () {
     }
 });
 
-Route::resource('projects', 'ProjectsController')
+Route::resource('projects', 'ProjectController')
     ->middleware('auth')
     ->except('show');  
 

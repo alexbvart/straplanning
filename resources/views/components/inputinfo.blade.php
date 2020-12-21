@@ -11,7 +11,9 @@
             rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
         type="text" 
         name="{{$slot}}" 
-        value="{{ old('slot') }}" 
+
+        value="{{$value}}"     
+
         required autocomplete="{{$slot}}" 
         autofocus
         placeholder="{{$label}}"

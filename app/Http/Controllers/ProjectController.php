@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use Illuminate\Http\Request;
 
-class ProjectsController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,6 @@ class ProjectsController extends Controller
     {
         $projects = Project::latest()->paginate();
 /*          return $projects;  */
-
         return view('projects.index', compact('projects')); 
     }
 
@@ -49,52 +48,54 @@ class ProjectsController extends Controller
         /* return $project->all();  */
 
         return back()->with('status','¡Felicitaciones! tu proyecto fue creado con exito');
-        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Projects  $projects
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      
-    public function show(Projects $projects)
+    public function show(Project $project)
     {
         //
-    }
-    */
+    }*/
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Projects  $projects
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Projects $projects)
+    public function edit(Project $project)
     {
-        return view('projects.edit')
+        return view('projects.edit', compact('project'));
+
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Projects  $projects
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Projects $projects)
+    public function update(Request $request, Project $project)
     {
-        //
+        $project->update($request->all());
+        return back()->with('status','¡Felicitaciones! los datos fueron actualizados');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Projects  $projects
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Projects $projects)
+    public function destroy(Project $project)
     {
-        //
+      $project->delete();
+      return back()->with('status', '¡Uff! Ese proyecto ahora es historia.');
     }
 }

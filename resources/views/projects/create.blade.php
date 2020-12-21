@@ -28,7 +28,8 @@
                 method="POST"
                 action="{{route('projects.store')}}"
             >
-                <x-inputinfo>
+            {{-- value="" --}}
+                <x-inputinfo >
                     <x-slot name="label">Nombre</x-slot> name
                 </x-inputinfo>
                 <x-inputinfo>
@@ -64,7 +65,7 @@
             <p class="text-gray-600 text-sm font-normal">
                 Por favor aqui registra la informaciòn general de tu empresa.
             </p>
-            <x-inputinfo>
+            <x-inputinfo >
                 <x-slot name="label">Misión</x-slot> mission
             </x-inputinfo>
 
