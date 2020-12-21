@@ -75,8 +75,14 @@ Route::get('projects', function () {
 
 Route::resource('projects', 'ProjectController')
     ->middleware('auth')
-    ->except('show');  
-
+    ->except('show'); 
+    
+/*  Route::get('download', function () {
+    $pdf = PDF::loadView('tabla');
+    return $pdf->stream();
+})->name('download');
+ */
 Route::get('/', 'PageController@projects');
 Route::get('/{project:slug}', 'PageController@project')->name('project');
+Route::get('/{project:slug}/pdf', 'PageController@projectpdf')->name('projectpdf');
 

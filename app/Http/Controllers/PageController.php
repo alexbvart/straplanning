@@ -26,4 +26,15 @@ class PageController extends Controller
     {
         return view('project',['project'=> $project]);
     }
+
+
+
+    /* Mostrar vista en pdf del actual proyecto*/
+    public function projectpdf(Project $project)
+    {
+ /*         return view('tabla',['project'=> $project]); */ 
+        $pdf = \PDF::loadView('tabla',['project'=> $project]);
+        $pdf->setPaper('a4','landscape');
+        return $pdf->stream();
+    }
 }
