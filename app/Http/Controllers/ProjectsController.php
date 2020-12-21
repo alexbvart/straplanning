@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Projects;
+use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -14,7 +14,10 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::latest()->paginate();
+/*          return $projects;  */
+
+        return view('projects.index', compact('projects')); 
     }
 
     /**
@@ -24,7 +27,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -35,7 +38,18 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* return $request->all(); */
+        //salvar la información
+        $project = Project::create(
+            [
+                'user_id' => auth()->user()->id
+            ] + $request->all()
+        );
+        
+        /* return $project->all();  */
+
+        return back()->with('status','¡Felicitaciones! tu proyecto fue creado con exito');
+        
     }
 
     /**
@@ -43,11 +57,12 @@ class ProjectsController extends Controller
      *
      * @param  \App\Projects  $projects
      * @return \Illuminate\Http\Response
-     */
+     
     public function show(Projects $projects)
     {
         //
     }
+    */
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +72,7 @@ class ProjectsController extends Controller
      */
     public function edit(Projects $projects)
     {
-        //
+        return view('projects.edit')
     }
 
     /**

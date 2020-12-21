@@ -49,6 +49,11 @@ class Project extends Model
 
     use Sluggable;
 
+    protected $fillable = [
+        'name', 'description', 'user_id',
+    ];
+
+
     /**
      * Return the sluggable configuration array for this model.
      * Devuelve la configuración de la configuración de este modelo

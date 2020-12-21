@@ -73,6 +73,10 @@ Route::get('projects', function () {
     }
 });
 
+Route::resource('projects', 'ProjectsController')
+    ->middleware('auth')
+    ->except('show');  
+
 Route::get('/', 'PageController@projects');
 Route::get('/{project:slug}', 'PageController@project')->name('project');
 

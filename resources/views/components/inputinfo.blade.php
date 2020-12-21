@@ -14,7 +14,7 @@
         value="{{ old('slot') }}" 
         required autocomplete="{{$slot}}" 
         autofocus
-        placeholder=""
+        placeholder="{{$label}}"
     >
 
 </div>

@@ -167,3 +167,21 @@
                     
 
 @endsection
+
+
+
+<!-- <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between">
+                        <a 
+                            href="{{route('projects.edit', $project)}}"
+                            class="text-xs text-center w-full bg-indigo-100 text-indigo-700 rounded font-medium p-3 lg:mr-3"
+                        >
+                            Editar
+                        </a>
+                        <a 
+                            href="{{route('projects.destroy', $project)}}"                               
+                            class="mt-4 text-center w-full lg:mt-0 text-xs bg-red-200 text-red-500 rounded font-medium p-3"
+                        >
+                            Eliminar
+                        </a>
+
+                      </div> -->
