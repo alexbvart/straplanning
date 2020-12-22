@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Geninformation;
 use App\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreGeninformationRequest;
 
 class GeninformationController extends Controller
 {
@@ -34,9 +35,11 @@ class GeninformationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGeninformationRequest $request)
     {
+        Geninformation::create($request->all());
 
+        return back()->with('status','Los datos han sido guardados');
 
     }
 

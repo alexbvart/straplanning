@@ -23,13 +23,14 @@ $items = array(
         <strong>
             ¿Cómo realizar el análisis FODA?
         </strong>
-        <p>A continuación se le presentaràn formularios los cuales debe llenar. Empecemos a desarrollar la matriz foda
+        <p>A continuación se le presentarán formularios los cuales debe llenar. Empecemos a desarrollar la matriz FODA
             🚀.</p>
         </section>
 
         <form
         method="POST"
         action="{{route('StoreGeneralInformation')}}"
+
         >
 
         <section id="geninformation" class="my-8">
@@ -56,9 +57,23 @@ $items = array(
                 <x-slot name="label">Factor diferenciador</x-slot> differentiatingFactor
             </x-inputinfo>
 
+            <div class="form-group">
+                <label for="project_id">Proyecto</label>
+                <select class="form-control selector" name="project_id" id="project_id">
+                    <option value="" class="opcionMuestra">Seleccione un proyecto</option>
+                    @foreach ($projects as $project)
+                        <option {{ old('project_id') == $project->id ? 'selected' : '' }} value="{{$project->id}}">{{$project->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
             <x-btninput class="bg-verde-action  mb-8">
                 Guardar información general
             </x-btninput>
+
+
+
 
 
         </section>
@@ -68,6 +83,8 @@ $items = array(
             {{session('status')}}
         </x-alert>
         @endif
+
+        @csrf
     </form>
 
 
