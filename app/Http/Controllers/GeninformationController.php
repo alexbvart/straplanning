@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Geninformation;
+use App\Project;
 use Illuminate\Http\Request;
 
 class GeninformationController extends Controller
@@ -24,7 +25,7 @@ class GeninformationController extends Controller
      */
     public function create()
     {
-        //
+        return view('geninformations.create',['projects'=>Project::all()]);
     }
 
     /**
