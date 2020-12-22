@@ -15,8 +15,9 @@
             ←
             Volver a Cursos
         </a>
-        
-        <a href="{{ url('/'.$project->name.'/pdf')}}" target="_blank" rel="noopener noreferrer">Descargar pdf</a>
+
+        <a href="{{ url("/{$project->slug}/pdf")}}" target="_blank" rel="noopener noreferrer">Descargar pdf</a>
+        {{-- <a href="{{ url('/'.$project->name.'/pdf')}}" target="_blank" rel="noopener noreferrer">Descargar pdf</a> --}}
     </header>
 
     <?php 
@@ -25,9 +26,6 @@
         $items =$project->itemfodas;
         
     ?>
-    
-
-        
     
     <h1 class="title-font font-bold sm:text-4xl text-3xl mb-2 mt-8  text-gray-900">
         {{$project->name}} 
@@ -87,24 +85,29 @@
         no hay objetivos :D
     @endif
 
-{{-- todos los items
-    @if ($items->count())
-        items de {{$project->name}}
-        <br> <br>
-        @foreach ( $items as $item)
-        - {{$item->description}} <br>
+    {{-- todos los items
+        @if ($items->count())
+            items de {{$project->name}}
+            <br> <br>
+            @foreach ( $items as $item)
+            - {{$item->description}} <br>
 
-        @endforeach  
-    @else
-        no hay objetivos :D
-    @endif --}}
+            @endforeach  
+        @else
+            no hay objetivos :D
+        @endif 
+    --}}
 
-{{--"tipoitem_id"     
-    1 fortaleza
-    2 oportunidades
-    3 debilidades
-    4 amenazas
-    shadow rounded my --}}
+    {{--
+        "tipoitem_id"     
+        1 fortaleza
+        2 oportunidades
+        3 debilidades
+        4 amenazas
+        shadow rounded my 
+    --}}
+
+
     <h2 class="title-font sm:text-2xl text-1xl mb-2 mt-8 font-medium text-gray-900">
         Matriz FODA
     </h2>

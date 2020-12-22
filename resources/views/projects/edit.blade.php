@@ -48,6 +48,43 @@
         </form>
         
     </section>
+
+
+    <section id="geninformation" class="my-8">
+        <h1 class="title-font font-bold sm:text-4xl text-3xl mb-2 mt-8  text-gray-900">
+            Información general de la institución
+        </h1>
+        <p class="text-gray-600 text-sm font-normal">
+            Por favor aqui registra la informaciòn general de tu empresa.
+        </p>
+
+
+        <form action="">
+
+        
+            <x-inputinfo >  
+                <x-slot name="label">Misión</x-slot>        mission  
+            </x-inputinfo>
+
+            <x-inputinfo >  
+                <x-slot name="label">Visión</x-slot>          vision
+            </x-inputinfo>
+
+            <x-inputinfo >  
+                <x-slot name="label">Propuesta de valor</x-slot>      valueProposition    
+            </x-inputinfo>
+
+            <x-inputinfo >  
+                <x-slot name="label">Factor diferenciador</x-slot>      differentiatingFactor    
+            </x-inputinfo>
+
+            <x-btninput class="bg-verde-action  mb-8">
+                Guardar informacion general
+            </x-btninput>
+        </form>
+    </section>
+
+
 </div>
 
 @endsection

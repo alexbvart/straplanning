@@ -35,7 +35,8 @@ class GeninformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**

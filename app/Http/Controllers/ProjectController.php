@@ -14,6 +14,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
+
+
         $projects = Project::latest()->paginate();
 /*          return $projects;  */
         return view('projects.index', compact('projects')); 
@@ -38,6 +40,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         /* return $request->all(); */
+
         //salvar la información
         $project = Project::create(
             [

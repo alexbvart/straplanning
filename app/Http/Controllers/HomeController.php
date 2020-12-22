@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Project;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     /* Modifique este metodo para que cuando vaya a home me muestra la vista projects */
     public function index()
     {
-        return view('home');
+        /* return view('home'); */
+        $projects = Project::latest()->paginate();
+    
+        return view('projects.index', compact('projects')); 
     }
 }
