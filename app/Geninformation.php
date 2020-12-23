@@ -10,7 +10,7 @@ class Geninformation extends Model
      * Relacion uno a uno (inversa).
      *
      * projects -> general information  -->>--   general information <-  projects
-     }*/  
+     }*/
 
     public function project()
     {
@@ -23,5 +23,12 @@ class Geninformation extends Model
     {
         return $this->hasMany('App\Objetivo');
     }
+
+    protected $fillable = [
+            'mission',
+            'vision',
+            'valueProposition',
+            'differentiatingFactor',
+            'project_id'
+    ];
 }
-     

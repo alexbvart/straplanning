@@ -15,9 +15,11 @@ class ProjectController extends Controller
     public function index()
     {
 
-
-        $projects = Project::latest()->paginate();
-/*          return $projects;  */
+        $user_id = auth()->user()->id;
+     
+        $projects = Project::where('user_id','=',$user_id) 
+            ->latest()
+            ->paginate();
         return view('projects.index', compact('projects')); 
     }
 

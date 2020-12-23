@@ -26,9 +26,12 @@ class HomeController extends Controller
      /* Modifique este metodo para que cuando vaya a home me muestra la vista projects */
     public function index()
     {
-        /* return view('home'); */
-        $projects = Project::latest()->paginate();
-    
-        return view('projects.index', compact('projects')); 
+        $user_id = auth()->user()->id;
+ /*         ->latest() */       
+        $projects = Project::where('user_id','=',$user_id)
+        ->paginate();
+        
+
+         return view('projects.index', compact('projects'));   
     }
 }

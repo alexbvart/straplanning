@@ -19,12 +19,12 @@
 
         <section id="crearProyecto" class="mb-4 mt-8">
             <strong>
-                Hola 🖐 empecemos a crear el analisis.
+                Hola 🖐 empecemos a crear el análisis.
             </strong>
             <p>Para empezar necesitamos unos datos .
             </p>
 
-            <form        
+            <form
                 method="POST"
                 action="{{route('projects.store')}}"
             >
@@ -33,7 +33,7 @@
                     <x-slot name="label">Nombre</x-slot> name
                 </x-inputinfo>
                 <x-inputinfo>
-                    <x-slot name="label">Brebe descripción</x-slot> description
+                    <x-slot name="label">Breve descripción</x-slot> description
                 </x-inputinfo>
 
                 @csrf
@@ -43,18 +43,18 @@
 
                 @if (session('status'))
                     <x-alert>
-                        {{session('status')}} 
+                        {{session('status')}}
                     </x-alert>
                 @endif
             </form>
-            
+
         </section>
 
         <section class="mb-4 mt-8">
             <strong>
                 ¿Cómo realizar el análisis FODA?
             </strong>
-            <p>A continuacion se le presentaràn formularios los cuales debe llenar. Empecemos a desarrollar la matriz foda
+            <p>A continuación se le presentaràn formularios los cuales debe llenar. Empecemos a desarrollar la matriz foda
                 🚀.</p>
         </section>
 
@@ -63,7 +63,7 @@
                 Información general de la institución
             </h1>
             <p class="text-gray-600 text-sm font-normal">
-                Por favor aqui registra la informaciòn general de tu empresa.
+                Por favor aquí registra la información general de tu empresa.
             </p>
             <x-inputinfo >
                 <x-slot name="label">Misión</x-slot> mission
@@ -82,7 +82,7 @@
             </x-inputinfo>
 
             <x-btninput class="bg-verde-action  mb-8">
-                Guardar informacion general
+                Guardar información general
             </x-btninput>
 
             <div class="flex flex-col lg:flex-row mx-auto w-full bg-white shadow rounded mb-6">

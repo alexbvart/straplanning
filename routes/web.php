@@ -75,18 +75,38 @@ Route::get('projects', function () {
 
 Route::resource('projects', 'ProjectController')
     ->middleware('auth')
-    ->except('show'); 
+    ->except('show');
 
 /* Route::resource('geningormation', 'GeninformationController')
     ->middleware('auth')
-    ->except('show'); 
+    ->except('show');
 */
-    
+
 /*  Route::get('download', function () {
     $pdf = PDF::loadView('tabla');
     return $pdf->stream();
 })->name('download');
  */
+/* Route::resource('informacionGeneral', 'GeninformationController')
+    ->middleware('auth')
+    ->except('show');
+ */
+
+Route::get('/informacionGeneral','GeninformationController@create')
+    ->middleware('auth')
+    ->name('createGeneralInformation');
+Route::post('/informacionGeneral','GeninformationController@store')
+    ->middleware('auth')
+    ->name('StoreGeneralInformation'); 
+
+Route::get('/foda','ItemfodaController@create')
+    ->middleware('auth')
+    ->name('createItemfoda');
+Route::post('/foda','ItemfodaController@store')
+    ->middleware('auth')
+    ->name('StoreItemfoda'); 
+
+
 
 
 Route::get('/', 'PageController@projects');

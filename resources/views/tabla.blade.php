@@ -45,44 +45,47 @@
         </td>
 
         <td class="bg-grey-light bg-naranja">    
-
-            @if ($items->count())
-
                     <h3 class="text-sm">
                         Oportunidades de {{$project->name}}
                     </h3>
-                <ol class="text-sm">
-                @foreach ( $items as $item)
+
+    
+                @if ($oportunidades->count())
+                <ol class="text-sm mt-2">
+                @foreach ( $oportunidades as $item)
     
                     @if ($item->tipoitem_id == 2)
-                    <li class="bg-white  rounded my-2 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
                         {{$item->description}}
                     </li>
                     @endif
     
                 @endforeach
-                </ol> 
-            @else
-                no hay oportunidades :D
-            @endif
+                </ol>
+             
+                @else
+                    no hay oportunidades :D
+                @endif
+
 
         </td>
         <td class="bg-grey-light bg-rosa">
-            @if ($items->count())
-                    <h3 class="text-sm">
-                        Amenazas de {{$project->name}}
-                    </h3>
-                <div class="text-sm ">
-                @foreach ( $items as $item)
-    
+            <h3 class="text-sm">
+                Amenazas de {{$project->name}}
+            </h3>
+
+            @if ($amenazas->count())
+                <ol class="text-sm mt-2">
+                @foreach ( $amenazas as $item)
+
                     @if ($item->tipoitem_id == 4)
-                    <div class="bg-white  rounded my-2 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
                         {{$item->description}}
-                    </div>
+                    </li>
                     @endif
-    
+
                 @endforeach 
-                </div>
+                </ol>
             @else
                 nadie nos amenaza, nosotros somos la amennaza :D
             @endif
@@ -90,28 +93,25 @@
     </tr>
     <tr class="hover:bg-gray-100  border-gray-200">
         <td class="bg-grey-light bg-celeste">
-                @if ($items->count())
+            <h3 class="text-sm">
+                Fortalezas de {{$project->name}}
+            </h3>
 
-                            <h3 class="text-sm">
-                                Fortalezas de {{$project->name}}
-                            </h3>
+        @if ($fortalezas->count())
+            <ol class="text-sm mt-2">
+            @foreach ( $fortalezas as $item)
 
-                        
-                        <ol class="text-sm ">
-                        @foreach ( $items as $item)
-        
-                            @if ($item->tipoitem_id == 1)
-                            <li class="bg-white  rounded my-2 border-b border-grey cursor-pointer hover:bg-grey-lighter">
-                                {{$item->description}} {{-- || {{$item->tipoitem_id}} <br> --}}
-                            </li>
-                            @endif
-        
-                        @endforeach     
-                        </ol>
-                    </div>
-                @else
-                    no hay fortalezas :D
+                @if ($item->tipoitem_id == 1)
+                <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    {{$item->description}} {{-- || {{$item->tipoitem_id}} <br> --}}
+                </li>
                 @endif
+
+            @endforeach     
+            </ol>
+        @else
+            no hay fortalezas :D
+        @endif
         </td>
         <td class="px-4 py-4">
             FO   
@@ -122,26 +122,25 @@
     </tr>
     <tr class="hover:bg-gray-100  border-gray-200">
         <td class="bg-grey-light bg-amarillo">
-            @if ($items->count())
+            <h3 class="text-sm">
+                Debilidades de {{$project->name}}
+            </h3>
 
-                    <h3 class="text-sm">
-                        Debilidades de {{$project->name}}
-                    </h3>
+        @if ($debilidades->count())
+            <ol class="text-sm mt-2">
+            @foreach ( $debilidades as $item)
 
-                <ol class="text-sm mt-2">
-                @foreach ( $items as $item)
-    
-                    @if ($item->tipoitem_id == 3)
-                    <li class="bg-white  rounded my-2 border-b border-grey cursor-pointer hover:bg-grey-lighter">
-                        {{$item->description}}
-                    </li>
-                    @endif
-    
-                @endforeach  
-                </ol>
-            @else
-                no hay debilidades, somos muy fuertes :D
-            @endif
+                @if ($item->tipoitem_id == 3)
+                <li class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    {{$item->description}}
+                </li>
+                @endif
+
+            @endforeach  
+            </ol>
+        @else
+            no hay debilidades, somos muy fuertes :D
+        @endif
         </td>
         <td class="px-4 py-4">
             DO   

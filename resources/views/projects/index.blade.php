@@ -2,6 +2,12 @@
 
 @section('content')
 
+@php
+/*    dd($projects);  
+$user_id=auth()->user()->id;
+    
+    dd($user_id);*/
+@endphp
 
 
     <section class="px-4 sm:px-6 lg:px-5 xl:px-6 py-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
@@ -33,6 +39,7 @@
                           ">
                                 <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
                                     {{ $project->name }}
+                                    
                                 </h1>
                                 <p class="leading-relaxed mb-3">
                                     {{ $project->description }}

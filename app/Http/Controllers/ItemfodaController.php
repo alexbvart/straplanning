@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Geninformation;
+use App\Itemfoda;
 use App\Project;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreGeninformationRequest;
 
-class GeninformationController extends Controller
+use Illuminate\Http\Request;
+
+class ItemfodaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,10 +24,9 @@ class GeninformationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-        return view('geninformations.create',['projects'=>Project::all()]);
+        return view('itemfoda.create',['projects'=>Project::all()]);
     }
 
     /**
@@ -36,33 +35,32 @@ class GeninformationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGeninformationRequest $request)
+    public function store(Request $request)
     {
-        Geninformation::create($request->all());
+        Itemfoda::create($request->all());
 
-        return back()->with('status','Los datos han sido guardados');
+        return back()->with('status','Los items han sido guardados.');
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Geninformation  $geninformation
+     * @param  \App\Itemfoda  $itemfoda
      * @return \Illuminate\Http\Response
-    
-    public function show(Geninformation $geninformation)
+     */
+    public function show(Itemfoda $itemfoda)
     {
         //
     }
-    */
-    
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Geninformation  $geninformation
+     * @param  \App\Itemfoda  $itemfoda
      * @return \Illuminate\Http\Response
      */
-    public function edit(Geninformation $geninformation)
+    public function edit(Itemfoda $itemfoda)
     {
         //
     }
@@ -71,10 +69,10 @@ class GeninformationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Geninformation  $geninformation
+     * @param  \App\Itemfoda  $itemfoda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Geninformation $geninformation)
+    public function update(Request $request, Itemfoda $itemfoda)
     {
         //
     }
@@ -82,10 +80,10 @@ class GeninformationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Geninformation  $geninformation
+     * @param  \App\Itemfoda  $itemfoda
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Geninformation $geninformation)
+    public function destroy(Itemfoda $itemfoda)
     {
         //
     }
