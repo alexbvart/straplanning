@@ -26,7 +26,8 @@ class ItemfodaController extends Controller
      */
     public function create()
     {
-        return view('itemfoda.create',['projects'=>Project::all()]);
+        $user_id = auth()->user()->id;
+        return view('itemfoda.create',['projects'=>Project::where('user_id','=',$user_id)->get()]);
     }
 
     /**

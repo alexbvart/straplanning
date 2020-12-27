@@ -45,50 +45,88 @@ $items = array(
             </p>
         </div>
 
-        <div class="flex flex-col lg:flex-row mx-auto w-full bg-white shadow rounded my-10 ">
-
+        <section class="flex flex-col lg:flex-row mx-auto w-full bg-white shadow rounded my-10 ">
+            
             <x-cardinput class="bg-celeste lg:w-1/3">
-                <x-slot name="title">
-                    Fortalezas
-                </x-slot>
-                <x-slot name="color">
-                    bg-celeste-action
-                </x-slot>
-                Agrega todos los atributos o puntos positivos que pueden servir para alcanzar los objetivos de la empresa.
-            </x-cardinput> 
-            <x-table class="lg:w-2/3">
-                <x-slot name="title">
-                    Fortalezas
-                </x-slot>
+                <form method="POST" action="{{ route('StoreItemfoda') }}">
+                    @method('POST')
+                    @csrf
+                    <x-slot name="title">
+                        Fortalezas
+                    </x-slot>
+                    <x-slot name="color">
+                        bg-celeste-action
+                    </x-slot>
+                    Agrega todos los atributos o puntos positivos que pueden servir para alcanzar los objetivos de la empresa.
+                   
+                    <span id=selectedCompanyF></span>
+                    <textarea cols="30" rows="3"
+                        name="description"
+                        class="rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
+                        placeholder="Message">
+                    </textarea >
+                    
+                    <input type="hidden" value="1" name="tipoitem_id">
+                
+                    <x-btninput class="bg-celeste-action" id="addFortalezas" >
+                        Agregar a la lista
+                    </x-btninput>
 
-                @foreach ($projects as $project)
-                <tr class="hover:bg-gray-100  border-gray-200">
-                    <td class="px-4 py-4">
-                    {{$project->description}}
-                    </td>
-                    <td
-                        class="px-4 py-4 font-medium hover:font-black text-red-500 hover:text-red-700 hover:bg-red-50">
-                        Eliminar
-                    </td>
-                    <td
-                        class="px-4 py-4 font-medium hover:font-black text-indigo-500 hover:text-indigo-700  hover:bg-indigo-50 ">
-                        Editar
-                    </td>
-                </tr>
-                @endforeach
-            </x-table>
-        </div>
+                </form>
+            </x-cardinput> 
+
+                <x-table class="lg:w-2/3">
+                    <x-slot name="title">
+                        Fortalezas
+                    </x-slot>
+
+                    @foreach ($projects as $project)
+                    <tr class="hover:bg-gray-100  border-gray-200">
+                        <td class="px-4 py-4">
+                        {{$project->description}}
+                        </td>
+                        <td
+                            class="px-4 py-4 font-medium hover:font-black text-red-500 hover:text-red-700 hover:bg-red-50">
+                            Eliminar
+                        </td>
+                        <td
+                            class="px-4 py-4 font-medium hover:font-black text-indigo-500 hover:text-indigo-700  hover:bg-indigo-50 ">
+                            Editar
+                        </td>
+                    </tr>
+                    @endforeach
+                </x-table>
+            </section>
+        
+
+
+        
 
         <div class="flex flex-col lg:flex-row mx-auto w-full bg-white shadow rounded my-10 ">
 
             <x-cardinput class="bg-naranja lg:w-1/3">
-                <x-slot name="title">
-                    Debilidades 
-                </x-slot>
-                <x-slot name="color">
-                    bg-naranja-action
-                </x-slot>
-                Agrega todo lo que es perjudicial o los factores que pueden ser desfavorables para nuestro objetivo.
+                <form method="POST" action="{{ route('StoreItemfoda') }}">
+                    @method('POST')
+                    @csrf
+                    <x-slot name="title">
+                        Debilidades 
+                    </x-slot>
+                    Agrega todo lo que es perjudicial o los factores que pueden ser desfavorables para nuestro objetivo.
+                                       
+                    <span id=selectedCompanyD></span>
+                    <textarea cols="30" rows="3"
+                        name="description"
+                        class="rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
+                        placeholder="Message">
+                    </textarea >
+                    
+                    <input type="hidden" value="3" name="tipoitem_id">
+                
+                    <x-btninput class="bg-naranja-action" >
+                        Agregar a la lista
+                    </x-btninput> 
+    
+                </form>
             </x-cardinput>
             <x-table class="lg:w-2/3" isEditable=true >
                 <x-slot name="title">
@@ -199,5 +237,34 @@ $items = array(
 
 </section>
 </div>
+<script>
+    $(document).ready(function () {
+        console.log('Hello desde js');
+        console.log('jQuery is working');
+        
+        $('#project_id').change(function (e) {
+            if ($(this).val()!='') {
+                /* let select = $(this).attr("id"); */
+                let value = $(this).val();
+                document.getElementById('selectedCompanyF').innerHTML=`
+                    <input type="text" value="${value}" name="project_id">
+                `;
+                document.getElementById('selectedCompanyD').innerHTML=`
+                    <input type="text" value="${value}" name="project_id">
+                `;
+                console.log(value);
+            }
+        })
+        $('#addFortalezas').submit(function (e) {
+            e.preventDefault();
+            console.log("fortaleza no resfresques la pagina");
+
+        
+        });
+
+    });
+</script>
 
 @endsection
+
+

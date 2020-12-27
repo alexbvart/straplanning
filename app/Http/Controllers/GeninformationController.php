@@ -27,7 +27,8 @@ class GeninformationController extends Controller
 
     public function create()
     {
-        return view('geninformations.create',['projects'=>Project::all()]);
+        $user_id = auth()->user()->id;
+        return view('geninformations.create',['projects'=>Project::where('user_id','=',$user_id)->get()]);
     }
 
     /**

@@ -27,4 +27,9 @@ class Itemfoda extends Model
         return $this->belongsTo('App\User');
     }
 
+    protected $fillable = [
+        'description',
+        'project_id',
+        'tipoitem_id'
+];
 }

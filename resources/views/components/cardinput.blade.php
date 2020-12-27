@@ -8,14 +8,14 @@
     <p class="text-gray-600 text-base font-normal">
         {{$slot}}
     </p>
-
+{{-- 
     <textarea cols="30" rows="3"
+        name="description"
         class="rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
         placeholder="Message">
-
     </textarea >
 
     <x-btninput class="{{$color}}">
         Agregar a la lista
-    </x-btninput>
+    </x-btninput> --}}
 </div>
