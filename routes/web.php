@@ -99,12 +99,18 @@ Route::post('/informacionGeneral','GeninformationController@store')
     ->middleware('auth')
     ->name('StoreGeneralInformation'); 
 
+
 Route::get('/foda/{project}/create','ItemfodaController@create')
-    ->middleware('auth')
     ->name('foda.create');
 Route::post('/foda','ItemfodaController@store')
-    ->middleware('auth')
     ->name('foda.store'); 
+Route::get('/foda/{itemfoda}/edit','ItemfodaController@edit')
+    ->name('foda.edit'); 
+Route::put('/foda/{itemfoda}','ItemfodaController@update')
+    ->name('foda.update'); 
+Route::delete('/foda/{itemfoda}','ItemfodaController@destroy')
+    ->name('foda.destroy'); 
+
 
 /* Route::resource('foda', 'ItemfodaController')
     ->middleware('auth')

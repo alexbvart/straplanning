@@ -60,10 +60,10 @@ class DatabaseSeeder extends Seeder
         /*  */
 
         factory(App\User::class,4)->create();
-        factory(App\Project::class,10)->create();
+/*         factory(App\Project::class,10)->create();
         factory(App\Objetivo::class,20)->create();
         factory(App\Itemfoda::class,80)->create();
-        factory(App\Geninformation::class,10)->create();
+        factory(App\Geninformation::class,10)->create(); */
         
        /*  $this->call(ProjectsSeeder::class); */
 

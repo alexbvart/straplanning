@@ -26,11 +26,14 @@
         </select>
     </div> --}}
     <select class="form-control selector" name="project_id" id="project_id">
-    <option {{ old('project_id') == $project->id ? 'selected' : '' }} 
-            value="{{$project->id}}">{{$project->name}}
+        <option {{ old('project_id') == $project->id ? 'selected' : '' }} 
+                value="{{$project->id}}">{{$project->name}}
         </option>
 
     </select>
+    @if (session('status'))
+        {{session('status')}}
+    @endif
     <div class="interno">
         <div class="my-4">        
             <strong>
@@ -58,7 +61,7 @@
                     <span id=selectedCompanyF></span>
                     <textarea cols="30" rows="3"
                         name="description"
-                        class="rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
+                        class="description rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
                         placeholder="Message"></textarea >
                     
                     {{-- <input type="hidden" value="{{$project->id}}" name="project_id"> --}}
@@ -76,18 +79,22 @@
                         Fortalezas
                     </x-slot>
 
-                    @foreach ($fortalezas as $project)
+                    @foreach ($fortalezas as $item)
                     <tr class="hover:bg-gray-100  border-gray-200">
                         <td class="px-4 py-4">
-                        {{$project->description}}
+                        {{$item->description}}
                         </td>
                         <td
                             class="px-4 py-4 font-medium hover:font-black text-red-500 hover:text-red-700 hover:bg-red-50">
-                            Eliminar
+                            <form action="{{route('foda.destroy',$item->id)}}" method="POST">
+                                @method('delete')
+                                @csrf
+                                <button type="submit">Eliminar</button>
+                            </form>
                         </td>
                         <td
                             class="px-4 py-4 font-medium hover:font-black text-indigo-500 hover:text-indigo-700  hover:bg-indigo-50 ">
-                            Editar
+                            <a href="{{route('foda.edit',$item->id)}}">Editar</a> 
                         </td>
                     </tr>
                     @endforeach
@@ -101,7 +108,7 @@
         <div class="flex flex-col lg:flex-row mx-auto w-full bg-white shadow rounded my-10 ">
 
             <x-cardinput class="bg-naranja lg:w-1/3">
-                <form method="POST" action="{{ route('foda.store') }}">
+                <form method="POST" action="{{ route('foda.store') }}" id="addDebilidades">
                     @method('POST')
                     @csrf
                     <x-slot name="title">
@@ -112,7 +119,7 @@
                     <span id=selectedCompanyD></span>
                     <textarea cols="30" rows="3"
                         name="description"
-                        class="rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
+                        class="description rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
                         placeholder="Message"></textarea >
                     
                     {{-- <input type="hidden" value="{{$project->id}}" name="project_id"> --}}
@@ -130,18 +137,22 @@
                     Debilidades 
                 </x-slot>
 
-                @foreach ($debilidades as $project)
+                @foreach ($debilidades as $item)
                 <tr class="hover:bg-gray-100  border-gray-200">
                     <td class="px-4 py-4">
-                        {{$project->description}}
+                        {{$item->description}}
                     </td>
                     <td
                         class="px-4 py-4 font-medium hover:font-black text-red-500 hover:text-red-700 hover:bg-red-50">
-                        Eliminar
+                        <form action="{{route('foda.destroy',$item->id)}}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button type="submit">Eliminar</button>
+                        </form>
                     </td>
                     <td
                         class="px-4 py-4 font-medium hover:font-black text-indigo-500 hover:text-indigo-700  hover:bg-indigo-50 ">
-                        Editar
+                        <a href="{{route('foda.edit',$item->id)}}">Editar</a> 
                     </td>
                 </tr>
                 @endforeach
@@ -196,18 +207,22 @@
                     Oportunidades 
                 </x-slot>
 
-                @foreach ($oportunidades as $project)
+                @foreach ($oportunidades as $item)
                 <tr class="hover:bg-gray-100  border-gray-200">
                     <td class="px-4 py-4">
-                        {{$project->description}}
+                        {{$item->description}}
                     </td>
                     <td
                         class="px-4 py-4 font-medium hover:font-black text-red-500 hover:text-red-700 hover:bg-red-50">
-                        Eliminar
+                        <form action="{{route('foda.destroy',$item->id)}}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button type="submit">Eliminar</button>
+                        </form>
                     </td>
                     <td
                         class="px-4 py-4 font-medium hover:font-black text-indigo-500 hover:text-indigo-700  hover:bg-indigo-50 ">
-                        Editar
+                        <a href="{{route('foda.edit',$item->id)}}">Editar</a> 
                     </td>
                 </tr>
                 @endforeach
@@ -234,10 +249,8 @@
                         class="rounded-md border-solid border-gray-400 border-2 p-3 md:text-base w-full mt-3"
                         placeholder="Message"></textarea >
                     
-                   {{--  <input type="hidden" value="{{$project->id}}" name="project_id"> --}}
                     <input type="hidden" value="4" name="tipoitem_id">
 
-                
                     <x-btninput class="bg-rosa-action"  >
                         Agregar a la lista
                     </x-btninput>
@@ -249,18 +262,23 @@
                     Amenazas 
                 </x-slot>
 
-                @foreach ($amenazas as $project)
+                @foreach ($amenazas as $item)
                 <tr class="hover:bg-gray-100  border-gray-200">
                     <td class="px-4 py-4">
-                        {{$project->description}}
+                        {{$item->description}}
                     </td>
                     <td
                         class="px-4 py-4 font-medium hover:font-black text-red-500 hover:text-red-700 hover:bg-red-50">
-                        Eliminar
+                        
+                        <form action="{{route('foda.destroy',$item->id)}}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button type="submit">Eliminar</button>
+                        </form>
                     </td>
                     <td
                         class="px-4 py-4 font-medium hover:font-black text-indigo-500 hover:text-indigo-700  hover:bg-indigo-50 ">
-                        Editar
+                        <a href="{{route('foda.edit',$item->id)}}">Editar</a> 
                     </td>
                 </tr>
                 @endforeach
@@ -298,10 +316,24 @@
          })  */
 
         $('#addFortalezas').submit(function (e) {
-            /* e.preventDefault(); */
-            console.log("fortaleza no resfresques la pagina");
+            e.preventDefault(); 
 
-        
+            const postData ={
+                description:     $('#addFortalezas .description').val(),
+                project_id:      $('#project_id').val(),
+                tipoitem_id:     "1",
+                _token:          $("input[name=_token]").val()
+            }
+            let url = '{{route('foda.store')}}'
+
+
+            $.post(url, postData,function (response) {
+                console.log(response);
+                $('#addFortalezas').trigger('reset');
+
+            })
+
+            console.log("fortaleza no resfresques la pagina"); 
         });
 
     });
