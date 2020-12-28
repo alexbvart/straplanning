@@ -99,14 +99,18 @@ Route::post('/informacionGeneral','GeninformationController@store')
     ->middleware('auth')
     ->name('StoreGeneralInformation'); 
 
-Route::get('/foda','ItemfodaController@create')
+Route::get('/foda/{project}/create','ItemfodaController@create')
     ->middleware('auth')
-    ->name('createItemfoda');
+    ->name('foda.create');
 Route::post('/foda','ItemfodaController@store')
     ->middleware('auth')
-    ->name('StoreItemfoda'); 
+    ->name('foda.store'); 
 
-
+/* Route::resource('foda', 'ItemfodaController')
+    ->middleware('auth')
+    ->except('index')
+    ->names('foda');
+ */
 
 
 Route::get('/', 'PageController@projects');

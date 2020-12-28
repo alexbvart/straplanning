@@ -24,10 +24,36 @@ class ItemfodaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $user_id = auth()->user()->id;
-        return view('itemfoda.create',['projects'=>Project::where('user_id','=',$user_id)->get()]);
+    public function create(Project $project)
+    {   
+/*        return dd($project);
+         $user_id = auth()->user()->id;
+        return view('itemfoda.create',['projects'=>Project::where('user_id','=',$user_id)->get()]); */
+        /*         return view('itemfoda.create',['project']); */
+
+        $projectID = $project->id;
+        /* $items = Itemfoda::where('project_id','=',$projectID)->get();  */
+
+        $fortalezas = Itemfoda::where('project_id','=',$projectID)
+            ->where('tipoitem_id','=',1)
+            ->get(); 
+
+        $oportunidades = Itemfoda::where('project_id','=',$projectID)
+            ->where('tipoitem_id','=',2)
+            ->get(); 
+
+        $debilidades = Itemfoda::where('project_id','=',$projectID)
+            ->where('tipoitem_id','=',3)
+            ->get(); 
+
+        $amenazas = Itemfoda::where('project_id','=',$projectID)
+            ->where('tipoitem_id','=',4)
+            ->get(); 
+            
+        return view('itemfoda.create', compact('project','fortalezas','oportunidades','debilidades','amenazas'));
+
+
+
     }
 
     /**

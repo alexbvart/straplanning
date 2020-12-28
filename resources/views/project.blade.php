@@ -15,7 +15,7 @@
             ←
             Volver a Cursos
         </a>
-
+        <a href="{{ route('foda.create',$project) }}">agregar foda</a>
         <a href="{{ url("/{$project->slug}/pdf")}}" target="_blank" rel="noopener noreferrer">Descargar pdf</a>
         {{-- <a href="{{ url('/'.$project->name.'/pdf')}}" target="_blank" rel="noopener noreferrer">Descargar pdf</a> --}}
     </header>
